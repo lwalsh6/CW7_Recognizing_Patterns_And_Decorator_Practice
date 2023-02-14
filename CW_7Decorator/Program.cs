@@ -26,11 +26,11 @@ namespace CW_7Decorator
         {
             Widget wid;
 
-            public void draw();
+             public void draw();
         }
         public class BorderDecorator : Decorator
         {
-            public Decorator(Widget w)
+            public Decorator(Widget w);
             {
 
             }
