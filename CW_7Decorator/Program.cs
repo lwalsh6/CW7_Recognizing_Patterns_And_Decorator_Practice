@@ -15,7 +15,7 @@ namespace CW_7Decorator
 
             TextField(int w, int h);
         }
-        abstract class Decorator : Widget
+        abstract class Decorator 
         {
             Widget wid;
 
@@ -30,7 +30,7 @@ namespace CW_7Decorator
             }
             public void draw()
             {
-
+                Console.WriteLine("I Am adding a Border");
             }
         }
         public class ScrollDecorator : Decorator
@@ -41,7 +41,7 @@ namespace CW_7Decorator
             }
             public void draw()
             {
-
+                Console.WriteLine("I Am adding a Scrollbar");
             }
         }
         static void Main(string[] args)
