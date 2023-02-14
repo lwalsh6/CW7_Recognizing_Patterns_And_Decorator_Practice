@@ -1,4 +1,8 @@
-﻿using System;
+﻿//Logan Walsh
+//2/14/2023
+//This program is a test program for a decorator
+
+using System;
 
 namespace CW_7Decorator
 {
@@ -13,13 +17,15 @@ namespace CW_7Decorator
             int width;
             int height;
 
-            TextField(int w, int h);
+            TextField(int w, int h)
+            {
+
+            }
         }
         abstract class Decorator 
         {
             Widget wid;
 
-            public Decorator(Widget w);
             public void draw();
         }
         public class BorderDecorator : Decorator
