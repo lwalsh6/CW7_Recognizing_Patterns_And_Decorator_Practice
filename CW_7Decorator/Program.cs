@@ -8,7 +8,7 @@ namespace CW_7Decorator
 {
     class DecoratorDemo
     {
-        interface Widget
+        public interface Widget
         {
             public void draw();
         }
@@ -26,11 +26,14 @@ namespace CW_7Decorator
         {
             Widget wid;
 
-             public void draw();
+             public void draw()
+            {
+
+            }
         }
-        public class BorderDecorator : Decorator
+        public class BorderDecorator //Add : Decorator?
         {
-            public Decorator(Widget w);
+            public BorderDecorator(Widget w)
             {
 
             }
@@ -39,9 +42,9 @@ namespace CW_7Decorator
                 Console.WriteLine("I Am adding a Border");
             }
         }
-        public class ScrollDecorator : Decorator
+        public class ScrollDecorator //Add : Decorator?
         {
-            public Decorator(Widget w)
+            public ScrollDecorator(Widget w) 
             {
 
             }
