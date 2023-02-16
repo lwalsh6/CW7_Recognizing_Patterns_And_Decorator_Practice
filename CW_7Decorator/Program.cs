@@ -6,55 +6,72 @@ using System;
 
 namespace CW_7Decorator
 {
-    class DecoratorDemo
+    public interface Widget
     {
-        public interface Widget
+        void draw();
+    }
+    public abstract class Decorator : Widget
+    {
+        Widget wid;
+
+        public Decorator(Widget w)
         {
-            public void draw();
+            wid = w;
         }
-        public class TextField
+        public virtual void draw()
         {
-            int width;
-            int height;
-
-            TextField(int w, int h)
-            {
-
-            }
+            wid.draw();
         }
-        abstract class Decorator 
+    }
+    public class TextField : Widget
+    {
+        int width;
+        int height;
+
+        public TextField(int w, int h)
         {
-            Widget wid;
-
-             public void draw()
-            {
-
-            }
+            w = width;
+            h = height;
         }
-        public class BorderDecorator //Add : Decorator?
+        public void draw() { }
+    }
+    public class BorderDecorator : Decorator
+    {
+        public BorderDecorator(Widget w) : base(w) { }
+        public override void draw()
         {
-            public BorderDecorator(Widget w)
-            {
-
-            }
-            public void draw()
-            {
-                Console.WriteLine("I Am adding a Border");
-            }
+            base.draw();
+            Console.WriteLine("I am a scroll decorator, holding a red border");
         }
-        public class ScrollDecorator //Add : Decorator?
+    }
+    public class ScrollDecorator : Decorator
+    {
+        public ScrollDecorator(Widget w) : base(w) { }
+        public override void draw()
         {
-            public ScrollDecorator(Widget w) 
-            {
-
-            }
-            public void draw()
-            {
-                Console.WriteLine("I Am adding a Scrollbar");
-            }
+            base.draw();
+            Console.WriteLine("I am a scroll decorator, I will change the scrollbar's color");
         }
+    }
+    public class ButtonDecorator : Decorator
+    {
+        public ButtonDecorator(Widget w) : base(w) { }
+        public override void draw()
+        {
+            base.draw();
+            Console.WriteLine("I am a button decorator, I will change the color of the buttons");
+        }
+    }
+    class program
+    {
         static void Main(string[] args)
         {
+            TextField message = new TextField(15, 20);
+            BorderDecorator border = new BorderDecorator(message);
+            ScrollDecorator scroll = new ScrollDecorator(border);
+            ButtonDecorator button = new ButtonDecorator(scroll);
+            button.draw();
+            Console.ReadKey();
         }
     }
 }
